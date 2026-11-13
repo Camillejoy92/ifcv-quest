@@ -1,0 +1,19 @@
+{
+  "name": "IFCV QUEST — Mon aventure professionnelle",
+  "short_name": "IFCV QUEST",
+  "description": "Jeu de préparation à l’admission et à la recherche d’alternance",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#09122b",
+  "theme_color": "#09122b",
+  "icons": [
+    {
+      "src": "./assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

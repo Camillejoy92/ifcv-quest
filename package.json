@@ -1,0 +1,8 @@
+{
+  "name": "ifcv-quest-github-pages",
+  "private": true,
+  "version": "7.6.1",
+  "description": "Publication statique d'IFCV QUEST",
+  "scripts": {"build": "node scripts/build-site.mjs"},
+  "dependencies": {"pdfjs-dist": "4.10.38", "pdf-lib": "1.17.1"}
+}
