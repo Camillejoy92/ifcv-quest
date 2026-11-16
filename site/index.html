@@ -515,6 +515,74 @@ body{background:#080e25}
 @media(max-width:580px){.v8-cards,.v8-formgrid{grid-template-columns:1fr}.v8-card{min-height:95px}.v8-tabs{gap:4px}.v8-tab{flex:1 1 30%;font-size:10px;padding:9px 6px}.v8-header{font-size:0!important}.v8-header::after{content:'✨ V8';font-size:12px}.v8-hero h3{font-size:17px}.v8-prospect-top{flex-wrap:wrap}.v8-kpis{gap:5px}.v8-kpis>div{min-width:80px;padding:9px}.v8-kpis strong{font-size:16px}.v8-scene-figure{font-size:30px}.v8-quick{display:inline-block!important;min-height:42px!important}}
 
 </style>
+<style id="v801-mobile-world">
+/* V8.0.1 – Interface cartographique entièrement utilisable sur téléphone */
+.mobile-city-guide{display:none}
+@media(max-width:890px){
+  .playfield{isolation:isolate}
+  #worldwrap{touch-action:pan-x pan-y;overflow:hidden}
+  .world{transition:transform .24s ease-out}
+  .world-status,.controls,.missions-quick,#mobileNav{display:none!important}
+  .mobile-city-guide{display:block;position:absolute;z-index:17;bottom:max(10px,env(safe-area-inset-bottom));left:10px;right:10px;
+    background:linear-gradient(145deg,#081d40f5,#143454f5);border:1px solid #8de8da70;
+    border-radius:20px;padding:12px;box-shadow:0 16px 35px #03142c9c;max-height:41%;overflow-y:auto;overscroll-behavior:contain}
+  .mobile-city-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:11px}
+  .mobile-city-copy{min-width:0}
+  .mobile-city-copy strong{font-size:12px;color:#a7ffdf;letter-spacing:.04em;display:block}
+  .mobile-city-copy small{font-size:10px;color:#c5d8ed;display:block;margin-top:2px}
+  .mobile-city-actions{display:flex;gap:5px;flex:none}
+  .mobile-city-actions button{background:#1a4462;color:white;border:1px solid #93ceeb70;border-radius:11px;padding:7px 10px;min-height:39px;
+    font-size:11px;font-weight:900;white-space:nowrap}
+  .mobile-city-actions button.active{background:#a7ffe0;color:#0b2940;border-color:#e2fff4}
+  .city-district-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+  .city-district{color:#fff;background:#ffffff13;border:1px solid #d2f5fb3e;border-radius:12px;
+    display:flex;align-items:center;gap:8px;min-height:59px;min-width:0;padding:7px 7px;text-align:left}
+  .city-district:active,.city-district:focus-visible{background:#6ef0cf34;border-color:#a9fff2;outline-offset:2px}
+  .city-district .city-emoji{font-size:19px;flex:none;line-height:1}
+  .city-district .city-label{font-size:10px;line-height:1.25;font-weight:850;overflow-wrap:anywhere}
+  .city-district.done{background:#184c5688;border-color:#8fffe29e}
+  .city-district.done .city-label:after{content:'  ✓';color:#baffdf}
+  .worldcall{left:10px!important;right:10px!important;top:10px!important;width:auto!important;
+    max-width:none!important;min-width:0!important;padding:10px 13px!important;
+    display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:center;gap:2px 12px}
+  .worldcall .micro{grid-column:1;font-size:9px!important;line-height:1.1}
+  .worldcall h1{grid-column:1;font-size:13px!important;line-height:1.28!important;margin:0!important}
+  .worldcall p{display:none!important}
+  .worldcall .btn{grid-column:2;grid-row:1/3;white-space:nowrap;font-size:11px!important;
+    margin:0!important;min-height:43px!important;padding:9px 11px!important}
+  #worldwrap[data-city-zoomed="yes"]{touch-action:none;cursor:grab}
+  #worldwrap[data-city-zoomed="yes"]:active{cursor:grabbing}
+}
+@media(max-width:360px){
+  .top{gap:4px!important;padding:7px!important}
+  .top .logo{width:37px!important;height:36px!important;font-size:14px!important}
+  .top .hud{display:none!important}
+  .top .hdr-right{gap:4px!important}
+  .top #v75TopSave{font-size:10px!important;padding:7px 8px!important}
+  .top #v73Nav{font-size:10px!important;padding:7px 8px!important}
+  .mobile-city-guide{left:7px;right:7px;padding:9px;bottom:max(6px,env(safe-area-inset-bottom))}
+  .city-district-grid{gap:5px}.city-district{min-height:52px;padding:6px 4px;gap:5px}
+  .city-district .city-emoji{font-size:16px}.city-district .city-label{font-size:9px}
+  .mobile-city-head{margin-bottom:7px}.mobile-city-actions button{font-size:10px;padding:6px 7px;min-height:35px}
+  .worldcall{left:7px!important;right:7px!important;top:7px!important}
+}
+@media(max-width:890px) and (max-height:650px){
+  .mobile-city-guide{padding:8px 10px;max-height:47%}
+  .mobile-city-head{margin-bottom:6px}
+  .city-district{min-height:44px;padding:5px 7px}
+  .city-district .city-emoji{font-size:17px}
+  .city-district .city-label{font-size:9px}
+  .worldcall{padding:7px 10px!important}
+  .worldcall h1{font-size:11px!important}
+}
+@media(max-width:890px) and (orientation:landscape) and (max-height:500px){
+  .mobile-city-guide{max-height:41%;padding:7px 9px}
+  .city-district-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:4px}
+  .city-district{min-height:43px;gap:3px;flex-direction:column;justify-content:center;text-align:center}
+  .city-district .city-label{font-size:8px}
+  .worldcall{max-width:310px!important;right:auto!important}
+}
+</style>
 </head>
 <body>
 <div class="app" id="app">
@@ -602,6 +670,11 @@ body{background:#080e25}
 </div></div>
   <div class="world-status" id="worldStatus"><span class="status-led"></span> <b>IFCV CITY</b><div id="missionHint" style="margin-top:5px;color:#dbeafe">Commence par l’Atelier CV.</div></div>
   <div class="worldcall" id="worldCall"><div class="micro">Ton aventure commence ici</div><h1>Prêt à explorer ton avenir ?</h1><p>Six ateliers à découvrir, à ton rythme.</p><button class="btn" id="startBtn">Commencer <span aria-hidden="true">↗</span></button></div>
+  <section class="mobile-city-guide" id="mobileCityGuide" aria-label="Carte et accès aux six ateliers">
+    <div class="mobile-city-head"><div class="mobile-city-copy"><strong>🗺️ Explorer les 6 quartiers</strong><small id="cityInstruction">La ville entière est visible. Choisis un atelier.</small></div>
+      <div class="mobile-city-actions"><button type="button" id="cityZoomBtn" aria-pressed="false" aria-label="Agrandir et déplacer la carte">＋ Zoom</button><button type="button" id="cityFitBtn" class="active" aria-pressed="true" aria-label="Afficher la carte entière">⌖ Tout voir</button></div>
+    </div><div id="cityDistrictGrid" class="city-district-grid"></div>
+  </section>
   <div class="controls"><div class="dpad" aria-label="Déplacer le personnage"><span></span><button data-move="up" aria-label="Haut">▲</button><span></span><button data-move="left" aria-label="Gauche">◀</button><button data-move="down" aria-label="Bas">▼</button><button data-move="right" aria-label="Droite">▶</button></div><div class="viewhelp"><b>Explore la ville</b><span>Utilise les flèches ou touche directement un atelier.</span></div></div>
   <div class="missions-quick"><button id="helpNav">☰ Missions</button><button class="primary" id="quickPdf">📄 Mon passeport</button></div><div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
   <nav class="mobile-nav" id="mobileNav" aria-label="Missions du jeu"></nav>
@@ -924,8 +997,7 @@ function cvRoom(){const diag=state.cvDiag;modal('Chapitre I · l’atelier CV','
  state.penOriginalFile=/\.pdf$/i.test(file.name)?file:null;
  state.penPageInfo=null;state.penNotes=[];state.penSelectedPage=1;penRevokePreview();
  try{
-   const txt=await extractFile(file);
-   if(norm(txt).trim().length<40)throw Error('Pas assez de texte pour un diagnostic fiable.');
+   const txt=await extractFile(file);   if(norm(txt).trim().length<40)throw Error('Pas assez de texte pour un diagnostic fiable.');
    if(/\.pdf$/i.test(file.name))v65AssertReadablePDF(txt);
    state.cvText=txt;state.cvFile=file.name;
    $('cvText').value=txt;
@@ -997,7 +1069,8 @@ function pdfMake(contents){let os=[''];const add=x=>(os.push(x),os.length-1);let
 function makePassport(){let pages=[],cur=[],y=0;const rgb=(r,g,b)=>`${r} ${g} ${b}`,navy=rgb(.08,.13,.29),purple=rgb(.38,.28,.8),muted=rgb(.35,.42,.54),white=rgb(1,1,1);function rect(x,y,w,h,c){cur.push(`${c} rg ${x} ${y} ${w} ${h} re f`)}function text(t,x,Y,size=11,b=false,c=navy){cur.push(`BT /${b?'F2':'F1'} ${size} Tf ${c} rg 1 0 0 1 ${x} ${Y} Tm (${pdfEsc(t)}) Tj ET`)}function start(){cur=[];pages.push(cur);rect(0,0,595,842,white);rect(0,728,595,114,navy);rect(0,722,595,6,purple);text('IFCV  /  QUEST',42,799,17,true,white);text('PASSEPORT PROFESSIONNEL',42,779,10,true,rgb(.55,.95,.79));text((state.name||'Explorateur').slice(0,55),42,751,20,true,white);rect(0,0,595,47,rgb(.945,.958,.986));text('Bilan exploratoire - ni note ni décision d\'admission',42,24,9,false,muted);y=690}function ensure(n){if(y-n<74)start()}function wrap(s,max=91){let lines=[],r='';for(let w of String(s).replace(/\s+/g,' ').trim().split(' ')){if((r+' '+w).trim().length>max&&r){lines.push(r);r=w}else r+=(r?' ':'')+w}if(r)lines.push(r);return lines.length?lines:['(aucun element)']}function heading(h){ensure(50);text(String(h).toUpperCase(),42,y,11,true,purple);y-=12;cur.push(`${purple} RG .8 w 42 ${y} m 553 ${y} l S`);y-=23}function para(s,indent=0){const l=wrap(s,95-indent/9);ensure(l.length*16+10);for(let r of l){text(r,42+indent,y,10,false,muted);y-=16}y-=8}function bullets(arr,max){if(!arr?.length){para('Aucun element pour le moment.');return}for(let x of arr.slice(0,max||100))para('• '+String(x))}start();heading('Mon parcours');para('Formation visée : '+state.formation);para('Missions explorées : '+Math.min(6,state.completed.size+(state.completed.has('passport')?0:1))+'/6. Points d\'exploration : '+(state.xp+(state.completed.has('passport')?0:50))+'.');para('Ce document est créé localement et remis uniquement sur décision du candidat. Les diagnostics et scénarios sont indicatifs : ils ne mesurent pas les compétences et ne peuvent fonder une décision d’admission.');heading('Indices du CV');bullets(state.cvDiag?.positive||['CV non analyse.'],5);heading('Pistes de progression du CV');bullets(state.cvDiag?.needs||['Importer un CV pour obtenir des conseils.'],7);heading('Conseils de reformulation retenus');let saved=[...state.accepted].sort((a,b)=>a-b).map(i=>state.cvDiag?.changes?.[i]).filter(Boolean);bullets(saved.map(r=>r.title+' : '+r.advice),5);heading('Compétences évoquées dans le CV');bullets(state.cvDiag?.skills||[],8);heading('Situations d\'entretien explorées');let cases=scenarios();let selected=state.interview.map((e,i)=>e?`${i+1}. ${cases[i].place} : ${cases[i].choices[e.choice]?.[1]||'Reponse libre'}`:null).filter(Boolean);bullets(selected,5);heading('Mes exemples et axes de progression');let answers=state.interviewFree.map((txt,i)=>txt?`${i+1}. ${txt.slice(0,390)} | Conseils : ${freeQuality(txt).join(' ')}`:null).filter(Boolean);bullets(answers,5);heading('Carte exploratoire des préférences');let count=traitCounts();bullets(Object.entries(count).map(([k,v])=>`${k} : ${v} choix dans les scenarios fictifs.`),5);bullets(Object.entries(state.talentDetail).map(([i,v])=>v?`Exemple ${Number(i)+1} : ${v.slice(0,390)}`:null).filter(Boolean),4);heading('Mises en situation professionnelles');bullets((state.arenaResults||[]).filter(Boolean).map((r,i)=>`Situation ${i+1} : ${r.outcome}`),4);heading('CV retravaille - synthese');if(state.cvDraft){para('Titre : '+(state.cvDraft.headline||'A preciser'));para('Presentation : '+(state.cvDraft.pitch||'A rediger'));bullets((state.cvDraft.additions||[]).map(r=>'Mission confirmee : '+r),5)}else para('La version retravaillee du CV n a pas encore ete creee.');heading('Pistes ROME explorées');bullets(V6_ROME_DATA.filter(m=>state.v6Romes.has(m.code)).map(m=>m.code+' - '+m.name),8);para('Source : France Travail, ROME 4.0. Associations CV-métiers proposées par IFCV QUEST ; à confirmer.');heading('Plan d\'action personnel');bullets(planActions(),3);heading('Autres pistes d exploration (non vérifiées)');bullets(cfg().jobs,4);heading('À discuter avec le conseiller admissions');bullets(['Quelles situations personnelles montrent ma motivation ?',`Quelles competences souhaiterais-je developper en ${state.formation} ?`,'Quelles entreprises et missions correspondent a mon projet d\'alternance ?'],4);for(let i=0;i<pages.length;i++){let cmds=pages[i];cmds.push(`BT /F2 9 Tf ${purple} rg 1 0 0 1 521 24 Tm (${i+1} / ${pages.length}) Tj ET`)}return pdfMake(pages)}
 function downloadPDF(){let blob=makePassport(),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='IFCV_QUEST_Passeport_'+(state.name||'Explorateur').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Za-z0-9-]/g,'_')+'.pdf';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),45000)}
 
-// IFCV QUEST V6 — extensions au moteur V3/V4, sans IA générative.places.splice(3,0,['arena','🎮','Mises en situation']);
+// IFCV QUEST V6 — extensions au moteur V3/V4, sans IA générative.
+places.splice(3,0,['arena','🎮','Mises en situation']);
 coords.arena=[562,590];
 state.arenaIndex=0;state.arenaResults=[];state.arenaTrust=0;state.cvDraft=null;state.cvAdv=null;
 const v5BaseOpenRoom=openRoom;openRoom=function(key){if(key==='arena'){if(!state.started){formIntro();return}arenaRoom();return}return v5BaseOpenRoom(key)};
@@ -1923,8 +1996,7 @@ const V74_CASES={
  ['Développement international', 'Un marché étranger paraît prometteur mais présente des incertitudes logistiques et réglementaires.', 'les hypothèses de demande et les barrières d’entrée', 'les coûts de service et la capacité de distribution', 'construire un scénario de test avec partenaire local', 'les contraintes réglementaires et contractuelles', 'la direction internationale'] ],
 'CCPE · Niveau 7':[
  ['Analyse d’entreprise', 'Une PME affiche une forte croissance mais son besoin de trésorerie progresse plus vite que les ventes.', 'le BFR, les flux et la saisonnalité', 'les états financiers et la qualité des prévisions', 'préparer une analyse de financement avec plusieurs scénarios', 'le risque de contrepartie et les délégations', 'le chargé d’affaires entreprises'],
- ['Financement d’investissement', 'Un dirigeant sollicite un financement pour un équipement dont le retour sur investissement reste incertain.', 'les flux projetés et l’apport du projet', 'les garanties et scénarios dégradés', 'confronter le besoin au modèle économique et documenter les risques', 'les exigences de crédit et d’habilitation', 'les analystes risques'],
- ['Portefeuille professionnels', 'Deux clients stratégiques réclament des conditions très différentes tandis que le temps du chargé d’affaires est contraint.', 'la rentabilité ajustée du risque et les besoins', 'les engagements, délais et opportunités de conseil', 'prioriser un plan de contacts transparent et traçable', 'les règles de tarification et de conformité', 'le responsable du centre d’affaires'],
+ ['Financement d’investissement', 'Un dirigeant sollicite un financement pour un équipement dont le retour sur investissement reste incertain.', 'les flux projetés et l’apport du projet', 'les garanties et scénarios dégradés', 'confronter le besoin au modèle économique et documenter les risques', 'les exigences de crédit et d’habilitation', 'les analystes risques'], ['Portefeuille professionnels', 'Deux clients stratégiques réclament des conditions très différentes tandis que le temps du chargé d’affaires est contraint.', 'la rentabilité ajustée du risque et les besoins', 'les engagements, délais et opportunités de conseil', 'prioriser un plan de contacts transparent et traçable', 'les règles de tarification et de conformité', 'le responsable du centre d’affaires'],
  ['Transmission d’entreprise', 'Un dirigeant prépare une transmission et sollicite un accompagnement financier global, mais certains éléments restent confidentiels.', 'les enjeux de continuité et de valorisation', 'les besoins de financement et contraintes de confidentialité', 'structurer les questions et coordonner les expertises habilitées', 'le secret professionnel et les conflits d’intérêt', 'les spécialistes entreprises et patrimoine'] ]
 };
 const V74_LEVELS={4:'Décision encadrée et communication',5:'Autonomie opérationnelle et arbitrage',6:'Diagnostic, conseil et pilotage',7:'Stratégie, risque et conduite du changement'};
@@ -1996,7 +2068,8 @@ const V74_EMP_ADD={
  ['Bancassurance et assurance','Agences et réseaux offrant solutions bancaires et assurantielles','découverte client et accompagnement contractuel','Valoriser le devoir de conseil et la compréhension des risques.'],
  ['Centres de clientèle professionnels','Structures bancaires accompagnant les indépendants et TPE','appui suivi clientèle et préparation de dossiers','Viser des missions d’appui avant des responsabilités complètes.'] ],
 'RCR · Niveau 6':[
- ['Réseaux retail multi-magasins','Mode, beauté, sport et équipement','pilotage de performance et management de proximité','Cibler les fonctions adjoint de direction ou responsable de rayon.'], ['Retail premium et luxe','Boutiques premium, maisons de mode et réseaux sélectifs','animation commerciale, standards de service et KPI','Présenter un projet retail précis, sans confondre prestige et responsabilité.'],
+ ['Réseaux retail multi-magasins','Mode, beauté, sport et équipement','pilotage de performance et management de proximité','Cibler les fonctions adjoint de direction ou responsable de rayon.'],
+ ['Retail premium et luxe','Boutiques premium, maisons de mode et réseaux sélectifs','animation commerciale, standards de service et KPI','Présenter un projet retail précis, sans confondre prestige et responsabilité.'],
  ['Franchises et enseignes régionales','Réseaux commerciaux régionaux et franchisés','animation d’équipe, gestion du centre de profit','Approcher le gérant franchisé ou la direction régionale.'] ],
 'RDC / CDC · Niveau 6':[
  ['PME et ETI en B2B','Prestataires de services, industriels et distributeurs','prospection, portefeuille, développement de comptes','Cibler les directions commerciales et business development.'],
@@ -2555,5 +2628,102 @@ passportRoom=function(){v8OriginalPassportRoom();const body=v8Elt('modalBody');i
  const nav=document.querySelector('.missions-quick');if(nav&&!v8Elt('v8QuickButton')){const button=document.createElement('button');button.type='button';button.id='v8QuickButton';button.className='v8-quick';button.textContent='✨ Mon coach';button.onclick=()=>v8Open('dashboard');nav.prepend(button)}
  const sub=document.querySelector('.brandtext small');if(sub)sub.textContent='L’ATELIER DES POSSIBLES · V8.0';document.title='IFCV QUEST V8.0 — Coaching de candidature';})();
 
+</script>
+<script id="v801-mobile-world-js">
+/* Moteur mobile isolé : la vue ordinateur conserve son positionnement historique. */
+(()=>{
+  'use strict';
+  const SMALL=890, WIDTH=1120, HEIGHT=720;
+  const $city=id=>document.getElementById(id);
+  const guide=$city('mobileCityGuide'),grid=$city('cityDistrictGrid'),wrap=$city('worldwrap'),world=$city('world');
+  if(!guide||!grid||!wrap||!world)return;
+  const oldFollow=follow,oldShowHUD=showHUD;
+  const camera={zoom:false,panX:0,panY:0,scale:1,fit:1,dragPointers:new Map(),dragActive:false};
+  function isMobile(){return window.innerWidth<=SMALL}
+  function limits(){
+    const box=$city('playfield'),cw=box.clientWidth,ch=box.clientHeight;
+    const call=$city('worldCall');
+    const top=call&&!call.classList.contains('hidden')?Math.max(78,call.offsetTop+call.offsetHeight+11):39;
+    const bottom=guide.offsetTop||Math.max(200,ch-210);
+    const space=Math.max(75,bottom-top-12);
+    return {cw,ch,top,bottom,space,cy:top+space/2};
+  }
+  function mobileFollow(){
+    if(!isMobile()){
+      wrap.dataset.cityZoomed='no';return oldFollow();
+    }
+    const m=limits(),fit=Math.max(.09,Math.min((m.cw-20)/WIDTH,(m.space-12)/HEIGHT,1));
+    camera.fit=fit;
+    const scale=camera.zoom?Math.min(.88,Math.max(.44,fit*2)):fit;
+    camera.scale=scale;
+    let x,y;
+    if(!camera.zoom){x=(m.cw-WIDTH*scale)/2;y=m.top+(m.space-HEIGHT*scale)/2;}
+    else{
+      const px=state.position?.x??550,py=state.position?.y??376;
+      x=m.cw/2-px*scale+camera.panX;
+      y=m.cy-py*scale+camera.panY;
+      const lowX=m.cw-WIDTH*scale-12,highX=12;
+      const lowY=m.bottom-HEIGHT*scale-15,highY=m.top+15;
+      x=Math.max(lowX,Math.min(highX,x));
+      y=Math.max(lowY,Math.min(highY,y));
+    }
+    world.style.transform=`translate(${x.toFixed(2)}px,${y.toFixed(2)}px) scale(${scale.toFixed(4)})`;
+    wrap.dataset.cityZoomed=camera.zoom?'yes':'no';
+  }
+  // Remplace uniquement la caméra. Toutes les touches et déplacements utilisent la nouvelle vue.
+  follow=mobileFollow;
+  function mode(zoom){
+    camera.zoom=zoom;camera.panX=0;camera.panY=0;
+    $city('cityZoomBtn').classList.toggle('active',zoom);
+    $city('cityFitBtn').classList.toggle('active',!zoom);
+    $city('cityZoomBtn').setAttribute('aria-pressed',String(zoom));
+    $city('cityFitBtn').setAttribute('aria-pressed',String(!zoom));
+    $city('cityInstruction').textContent=zoom?'Glisse sur la carte pour explorer les lieux.':'La ville entière est visible. Choisis un atelier.';
+    follow();
+  }
+  $city('cityZoomBtn').addEventListener('click',()=>mode(!camera.zoom));
+  $city('cityFitBtn').addEventListener('click',()=>mode(false));
+  function populate(){
+    // Les six lieux existants restent les seules destinations. Un bouton = un véritable atelier.
+    grid.innerHTML=places.map(([key,emoji,label])=>`<button type="button" class="city-district ${state.completed.has(key)?'done':''}" data-city-room="${key}" aria-label="Accéder à ${escapeHTML(label)}"><span class="city-emoji" aria-hidden="true">${emoji}</span><span class="city-label">${escapeHTML(label)}</span></button>`).join('');
+  }
+  showHUD=function(){oldShowHUD();populate()};
+  grid.addEventListener('click',e=>{
+    const b=e.target.closest('[data-city-room]');if(!b)return;
+    const key=b.dataset.cityRoom;
+    if(!state.started){formIntro();return;}
+    openRoom(key);
+  });
+  // Déplacement au doigt en mode zoom, sans intercepter le clic sur une maison, un PNJ ou un objet.
+  wrap.addEventListener('pointerdown',e=>{
+    if(!isMobile()||!camera.zoom||e.target.closest('button,[data-room],[data-npc],[data-object]'))return;
+    camera.dragPointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    try{wrap.setPointerCapture(e.pointerId)}catch{}
+  });
+  wrap.addEventListener('pointermove',e=>{
+    const last=camera.dragPointers.get(e.pointerId);if(!last||!camera.zoom)return;
+    const dx=e.clientX-last.x,dy=e.clientY-last.y;
+    camera.dragPointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    camera.panX+=dx;camera.panY+=dy;
+    camera.dragActive=true;
+    world.style.transition='none';follow();
+    if(e.cancelable)e.preventDefault();
+  },{passive:false});
+  for(const name of ['pointerup','pointercancel','lostpointercapture'])wrap.addEventListener(name,e=>{
+    camera.dragPointers.delete(e.pointerId);
+    if(camera.dragPointers.size===0){camera.dragActive=false;world.style.transition='';}
+  });
+  // Rotation et modification de la taille de la fenêtre : recadrage après calcul des nouveaux éléments.
+  window.addEventListener('resize',()=>requestAnimationFrame(follow));
+  window.addEventListener('orientationchange',()=>setTimeout(follow,120));
+  if(typeof ResizeObserver!=='undefined')new ResizeObserver(()=>{if(isMobile())requestAnimationFrame(follow)}).observe(guide);
+  const adjustHeader=()=>{
+    const p=$city('v73Nav');if(p)p.textContent=window.innerWidth<=360?'🧭 Parcours':'🧭 Mon parcours';
+  };
+  adjustHeader();window.addEventListener('resize',adjustHeader);
+  populate();requestAnimationFrame(follow);
+  document.title='IFCV QUEST V8.0.1 — Carte mobile responsive';
+  const subtitle=document.querySelector('.brandtext small');if(subtitle)subtitle.textContent='L’ATELIER DES POSSIBLES · V8.0.1';
+})();
 </script>
 </body></html>
