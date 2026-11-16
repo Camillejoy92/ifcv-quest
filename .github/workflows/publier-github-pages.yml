@@ -1,0 +1,56 @@
+name: Vérifier et publier IFCV QUEST
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-ifcv-quest-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  construire:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+      - name: Configurer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Installer les bibliothèques PDF
+        run: npm install --omit=optional --ignore-scripts --no-audit --no-fund
+      - name: Construire IFCV QUEST
+        run: npm run build
+      - name: Contrôler les fichiers générés
+        run: node scripts/check-build.mjs
+      - name: Activer GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - name: Préparer les fichiers de publication
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  publier:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    needs: construire
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploiement.outputs.page_url }}
+    steps:
+      - name: Publier GitHub Pages
+        id: deploiement
+        uses: actions/deploy-pages@v4
