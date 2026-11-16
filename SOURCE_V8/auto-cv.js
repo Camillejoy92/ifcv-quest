@@ -43,9 +43,9 @@
     }
     if(!/[\w.+-]+@[\w.-]+\.[a-z]{2,}/i.test(raw)) add('email','Coordonnées : e-mail','Ajoute une adresse e-mail de contact lisible et professionnelle.',near(/profil|contact|coordonne|prenom|nom/, .12),'À corriger','Aucune adresse e-mail reconnue dans le texte du PDF.');
     if(!/(?:\+33|0)[\s.\-]?[1-9](?:[\s.\-]?\d{2}){4}/.test(raw)) add('phone','Coordonnées : téléphone','Ajoute un numéro de téléphone où l’entreprise peut te joindre.',near(/contact|coordonne|prenom|nom/, .16),'À corriger','Aucun numéro français identifié dans le texte.');
-    const exp=/(experience|experience professionnelle|parcours professionnel|emplois|stages|activites professionnelles)/;
+    const exp=/(experience|experiance|experience professionnelle|parcours professionnel|emplois|stages|activites professionnelles)/;
     const edu=/(formation|diplome|parcours scolaire|etudes|education|certification)/;
-    const skills=/(competence|savoir.faire|aptitudes|outils maitrises)/;
+    const skills=/(competence|competance|savoir.faire|aptitudes|outils maitrises)/;
     if(!exp.test(n)) add('experience','Rubrique expériences','Ajoute une rubrique « Expériences » : stages, emplois, projets ou bénévolat, avec les missions réellement réalisées.',near(/profil|objectif/, .44),'À vérifier','Rubrique expériences non reconnue dans le texte.');
     if(!edu.test(n)) add('formation','Rubrique formation','Ajoute tes formations et diplômes, avec les établissements et les années, du plus récent au plus ancien.',near(/experience|competence/, .77),'À corriger','Rubrique formation non identifiée.');
     if(!skills.test(n)) add('skills','Compétences identifiables','Présente des compétences concrètes que tu peux illustrer en entretien, sans inventer de savoir-faire.',near(/profil|formation/, .65),'Conseil','Rubrique compétences non reconnue.');
@@ -62,7 +62,7 @@
         if(!/(19|20)\d\d|\b(0?[1-9]|1[0-2])\/\d{4}\b/.test(text))add('dates','Dates des expériences','Précise les périodes de tes expériences (mois et année si possible) et le type de contrat.',{page:content[0].page,u:Math.min(.91,content[0].x/content[0].w),v:Math.min(.95,content[0].top/content[0].h)},'À vérifier','Aucune période reconnue dans la zone Expériences.');
         const substantive=content.filter(l=>clean(l.text).length>20&&!/^(stage|cdd|cdi|alternance|\d{4})/.test(clean(l.text)));
         if(substantive.length && !/\b(resultat|realise|contribue|amelior|augment|reduit|organis|accueill|conseill|assure|gere|particip)/.test(clean(text))){
-          const l=substantive[0];add('missions','Décrire les réalisations','Pour cette expérience, précise une mission réellement accomplie et ce qu’elle a permis de réaliser.',{page:l.page,u:Math.min(.92,l.x/l.w),v:Math.min(.95,(l.top+7)/l.h)},'Conseil','La zone expériences ne contient pas de description d’action reconnue.');
+          const l=substantive[0];add('missions','Décrire les réalisations','Tu listes des tâches : précise ton rôle personnel et un exemple concret ou résultat vérifiable.',{page:l.page,u:Math.min(.92,l.x/l.w),v:Math.min(.95,(l.top+7)/l.h)},'Conseil','Peu de verbes d’action identifiés dans la zone Expériences.');
         }
       }
     }
@@ -137,7 +137,7 @@
         const toY=top-Math.min(21,boxH/2);
         out.drawCircle({x:fromX,y:fromY,size:8.8,color:lib.rgb(1,1,1),borderColor:red,borderWidth:2});
         out.drawText(tag,{x:fromX-(tag.length>1?5:2.6),y:fromY-3.4,size:8.5,font:bold,color:red});
-        out.drawLine({start:{x:fromX+10,y:fromY},end:{x:W-3,y:toY},color:red,thickness:.65,opacity:.58});
+        // Correspondance établie par le numéro rouge, sans ligne qui traverse le CV.
       }
       out.drawText('Conseils automatiques a verifier.',{x:W+13,y:18,size:8,font:regular,color:muted});
       out.drawText('Document original conserve a gauche.',{x:W+13,y:8,size:8,font:regular,color:muted});
