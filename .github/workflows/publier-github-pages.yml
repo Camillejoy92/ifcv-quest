@@ -30,6 +30,13 @@ jobs:
         run: npm run build
       - name: Contrôler les fichiers générés
         run: node scripts/check-build.mjs
+      - name: Tester les annotations automatiques sur de vrais PDF
+        run: node scripts/test-auto-cv.mjs
+      - name: Conserver les PDF fictifs de recette
+        uses: actions/upload-artifact@v4
+        with:
+          name: CV-IFCV-annotations-V802
+          path: tests-output/*.pdf
       - name: Activer GitHub Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5

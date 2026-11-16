@@ -1,0 +1,27 @@
+/* Diagnostic CV IFCV : volontairement indépendant des anciens outils de saisie manuelle. */
+.autoCV-intro{border:1px solid #75e7d99c;background:linear-gradient(130deg,#144a50d9,#163c59d9);border-radius:15px;padding:15px 16px;font-size:13px;line-height:1.6;color:#e5fff7;margin:0 0 14px}
+.autoCV-intro b{color:#a8ffe5}
+.autoCV-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:11px;margin:8px 0 16px}
+.autoCV-toolbar label{background:#ffca79;color:#172844;font-weight:900;cursor:pointer;padding:12px 16px;border-radius:12px;font-size:12px}
+.autoCV-toolbar input{display:block;max-width:250px;margin-top:8px;font-size:11px}
+#autoCVFileName{font-size:12px;color:#d6e4fc;word-break:break-word}
+.autoCV-grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(300px,.94fr);gap:17px;align-items:start}
+.autoCV-preview{min-width:0;background:#ecf1f7;padding:12px;border-radius:16px;color:#24354d}
+.autoCV-ptop{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;margin-bottom:10px}
+.autoCV-ptop label{display:flex;align-items:center;gap:6px}.autoCV-ptop select{padding:5px;border:1px solid #b9cee0;background:white;border-radius:6px;max-width:100px}
+.autoCV-sheet{position:relative;background:#fff;max-width:100%;width:min(100%,680px);aspect-ratio:.707;margin:auto;overflow:hidden;box-shadow:0 3px 12px #213b5938}
+.autoCV-sheet canvas{width:100%;height:100%;object-fit:contain;display:block}
+#autoCVMarks{position:absolute;inset:0;pointer-events:none}
+.autoCV-marker{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;border:2px solid #b81932;border-radius:50%;height:23px;min-width:23px;background:#fff7f9f0;color:#b81932;font-size:11px;font-weight:900;box-shadow:0 1px 6px #ac192855}
+.autoCV-preview>p{font-size:11px;line-height:1.5;margin:10px 2px 0}
+.autoCV-review{border:1px solid #ffffff30;background:#122850;border-radius:15px;padding:15px;min-width:0}
+.autoCV-review h3{margin:0 0 12px;color:#b5ffec;font-size:16px}
+#autoCVNotes{display:grid;gap:9px;max-height:480px;overflow-y:auto;margin-bottom:16px}
+.autoCV-note{display:flex;gap:10px;border:1px solid #f297a75b;background:#391c34a6;border-radius:12px;padding:11px}
+.autoCV-note .autoCV-count{flex:none;background:#c82844;color:#fff;height:25px;width:25px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900}
+.autoCV-note strong{display:block;font-size:12px;color:#ffe5e5;margin:0 0 3px}.autoCV-note small{font-size:10px;color:#ffa9b6}
+.autoCV-note p{font-size:12px;line-height:1.5;color:#faf0f3;margin:4px 0 6px}.autoCV-note details{font-size:11px;color:#ffd2db}.autoCV-note summary{cursor:pointer}
+#autoCVSave{display:block;width:100%;white-space:normal;line-height:1.35;min-height:49px}
+.autoCV-caution{font-size:11px;line-height:1.5;color:#c9d8ec;margin:13px 0 0}
+.autoCV-status{padding:12px;margin-top:12px;border-radius:11px;background:#12334a;font-size:12px;color:#b2ffeb}.autoCV-status.error{background:#57253a;color:#ffd5dd}
+@media(max-width:810px){.autoCV-grid{grid-template-columns:minmax(0,1fr)}.autoCV-review{padding:13px}.autoCV-preview{padding:9px}.autoCV-toolbar label{width:100%}.autoCV-toolbar input{max-width:100%;width:100%}#autoCVNotes{max-height:none}}
