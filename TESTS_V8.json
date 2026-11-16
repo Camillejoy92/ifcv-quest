@@ -1,0 +1,26 @@
+{
+  "version": "8.0.0",
+  "automated": {
+    "passed": 131,
+    "failed": 0,
+    "programmes": 12,
+    "viewport_widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "limitations": [
+    "Tests navigateur mobile réel non effectués",
+    "PDF.js/pdf-lib non vérifiés sur GitHub Pages",
+    "Validation SI/RGPD et contenus non effectuée"
+  ],
+  "verified_locally": [
+    "CV PDF quatre modèles",
+    "Passeport PDF historique cinq pages",
+    "Plan de prospection PDF multipage",
+    "Fiche recruteur PDF",
+    "Reprise HTML/JSON sans textes privés par défaut",
+    "Dépassements PDF noms longs corrigés"
+  ]
+}

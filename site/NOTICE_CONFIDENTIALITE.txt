@@ -1,4 +1,7 @@
-VERSION PILOTE — IFCV QUEST
-Ce jeu traite localement les contenus de CV dans le navigateur. Ne pas déposer de CV réels sur GitHub.
-Ne pas utiliser en conditions réelles sans validation RGPD, test des mobiles et vérification des bibliothèques PDF.
-Les téléchargements de progression sont sous la responsabilité de leur détenteur ; éviter les appareils partagés.
+IFCV QUEST V8.0 – version pilote
+Traitement local du contenu des CV dans le navigateur, sans compte utilisateur ni service de stockage IFCV.
+Les sauvegardes HTML/JSON sont déclenchées volontairement ; les textes personnels sont exclus par défaut, et peuvent être inclus sur choix explicite.
+Ne pas enregistrer de fichiers sensibles sur un terminal partagé, ni les pousser dans ce dépôt GitHub public.
+GitHub Pages peut collecter des données techniques d'accès. Validation RGPD, SSI et accessibilité nécessaire avant diffusion avec de vrais CV.
+Les questionnaires sont des pistes d'exploration non psychométriques. Aucune décision d'admission automatisée.
+Les entreprises et intitulés de poste sont indicatifs ; recrutement et partenariat actif non vérifiés.
