@@ -110,7 +110,7 @@
     if(srcPages.length!==pages.length)throw Error('Pages PDF incohérentes : export arrêté.');
     for(const p of srcPages)if(p.getRotation().angle%360!==0)throw Error('Ce document contient une page tournée : export automatique non autorisé.');
     const output=await lib.PDFDocument.create();
-    const embedded=await output.embedPdf(sourceBytes);const regular=await output.embedFont(lib.StandardFonts.Helvetica),bold=await output.embedFont(lib.StandardFonts.HelveticaBold);
+    const embedded=await output.embedPdf(sourceBytes,srcPages.map((_,index)=>index));const regular=await output.embedFont(lib.StandardFonts.Helvetica),bold=await output.embedFont(lib.StandardFonts.HelveticaBold);
     const red=lib.rgb(.70,.10,.18),pale=lib.rgb(1,.955,.965),paper=lib.rgb(.987,.984,.988),muted=lib.rgb(.34,.37,.42);
     for(let i=0;i<srcPages.length;i++){
       const pg=srcPages[i],W=pg.getWidth(),H=pg.getHeight(),extra=220;
